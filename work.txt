@@ -1,0 +1,21 @@
+1.年检标签:ResNet50分类网络,分成3类
+2.打电话:ResNet50分类网络,暂时分成2类,准备分得更详细
+2.2安全带
+3.sigmoid+cross entropy与softmax+cross entropy的细微差别,以及如何应用
+4.multilabel classification
+5.车牌类型分类:基于AlexNet,自己定制网络模型, 7.7M, 1ms
+6.智能泊车计费项目:车辆事件检测模块,以及算法层架构设计、实现
+gdb调试、多线程、opencv视频接口与直线检测、stl、数据采集与软件测试
+7.把SSD的前置VGG换成MobileNet
+8.create new layer(c++ and python)
+9.merge batch normalization layers
+10.全自动化脚本
+11.data augmentation:distort, scale jittering, scale and aspect ratio augmentation, noise, PCA jittering, label smoothing.
+12.the usage of HDF5DataLayer ImageDataLayer
+13.使用cifar10、ImageNet进行评测
+14.精通caffe, 熟悉caffe常用的各个层的源码
+15.精通SSD, 熟悉SSD新增的层的源码
+16.熟练使用tensorflow, pytorch
+17.segmentation
+18.mtcnn
+19.data augmentation and experiments

@@ -1,0 +1,18 @@
+CaffeSSD: 小车车头1  大车车头2 非机动车3 小车车尾4
+vehicleType: 对1 2 4重新分类
+landmarks: 6个关键点
+label: 打电话与未系安全带. 先用SSD检测车人的区域, 在用ResNet50对打电话、未系安全带分别再进行分类.
+detailDescriptor: SpherefaceNet, 输出为挡风玻璃的512D特征向量,用于以图搜图. 以图搜图流程:先比对整车512D特征向量, 后比对挡风玻璃512D特征向量, 相似度cos距离.
+82:/home/wuhao/caffeSSD/caffe/train/vehicleDetectVOC.py 由我们的xml和图片生成符合SSD需要格式的xml和图片,整个入口和训练代码是train_label.py
+年检标签数据:开发图库/样本集/AnnualInspectionLabel
+查看xml标注数据工具:80 谢森栋/getImageInfoDemo
+xml: safebelt未系安全带2  annualInspectionLable未违法(副驾驶打电话不属于违法)1  phoneCall打电话3 sunVisor既打电话又未系安全带4
+/home/wuhao/sourImageDir/vehicleLabelDetect  80地址:开发图库 2018.6.26.kevoc
+
+
+git https://192.168.0.80 jiangzq jiangzq@1234
+jenkins http://192.168.0.80:8000 jiangzq jzq@1234
+企业邮箱: jiangzq@corp.ketech.com.cn 5A4b145150
+移动协同 账号为工号 初始密码为123456
+80 81服务器  administrator ketech@1234
+82服务器 root 123456
