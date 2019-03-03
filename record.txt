@@ -3,7 +3,7 @@ vehicleType: 对1 2 4重新分类
 landmarks: 6个关键点
 label: 打电话与未系安全带. 先用SSD检测车人的区域, 在用ResNet50对打电话、未系安全带分别再进行分类.
 detailDescriptor: SpherefaceNet, 输出为挡风玻璃的512D特征向量,用于以图搜图. 以图搜图流程:先比对整车512D特征向量, 后比对挡风玻璃512D特征向量, 相似度cos距离.
-82:/home/wuhao/caffeSSD/caffe/train/vehicleDetectVOC.py 由我们的xml和图片生成符合SSD需要格式的xml和图片,整个入口和训练代码是train_label.py
+82:/home/wuhao/caffeSSD/caffe/train/vehicleDetectVOC.py 由我们的xml和图片生成符合SSD需要格式的xml和图片,label ssd入口和训练代码是train_label.py, vehicle ssd入口和训练代码是train_vehicle_detect.py
 年检标签数据:开发图库/样本集/AnnualInspectionLabel
 查看xml标注数据工具:80 谢森栋/getImageInfoDemo
 xml: safebelt未系安全带2  annualInspectionLable未违法(副驾驶打电话不属于违法)1  phoneCall打电话3 sunVisor既打电话又未系安全带4
@@ -16,3 +16,7 @@ jenkins http://192.168.0.80:8000 jiangzq jzq@1234
 移动协同 账号为工号 初始密码为123456
 80 81服务器  administrator ketech@1234
 82服务器 root 123456
+车牌识别plate_flag: 0车牌能检测到,车牌号识别不了 1车牌能检测到,车牌号可以识别 2车牌检测不到
+报销流程:物资申请单,付款审批单,发票右上方写上付款审批单流水号.
+车牌数据:label是以4个关键点的形式给的,包含7或8位的车牌,可能包含两层的车牌.写脚本,crop出透视变换后正的车牌进行训练.deploy时,分单行和两行车牌的情况进行.
+labeled plate dataset:gallery/03.开发图库/3-13车牌keVOC    包含两行的车牌,没有新能源的车牌

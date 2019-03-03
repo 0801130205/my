@@ -19,3 +19,13 @@ gdb调试、多线程、opencv视频接口与直线检测、stl、数据采集�
 17.segmentation
 18.mtcnn
 19.data augmentation and experiments
+20.快速研究一个方向(如 semantic segmentation, action recognition)的思路:先复现该方向最火的开源代码,研读其论文和代码, 然后尝试更优的方法, 把性能提升到state-of-the-art. (比较高的水准是:论文作者没有提供源码,也没有相关开源代码,自己从零去复现论文的结果     最高的水准是:自己发paper)
+21.精通FCN、MTCNN、FaceNet源码
+22.train和validation时accuracy 98%以上,loss 0.01以下, 但是deploy.prototxt在training set和validation set上的accuracy并没有训练时那么高,严重时predict为常量.随着迭代次数越来越多,predict结果越来越差,越趋向于常量.
+23.action recognition, e.g. C3D
+24.RNN and GAN
+25.CRNN + CTC车牌识别
+26.camera calibration和反畸变
+27.attention,chatbot,translation  cnn+Seq2Seq+Attention
+28.CUDA编程
+29.end-to-end license plate detection and recognition; CCPD

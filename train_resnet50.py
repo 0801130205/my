@@ -21,7 +21,7 @@ def parseCommand():
     parser.add_argument("--resize_width", default=0, type=int, help="image width in lmdb. If 0, save images in original size")
     parser.add_argument("--base_lr", default=0.01, type=int, help="base_lr in solver.prototxt")
     parser.add_argument("--weight_decay", default=0.005, type=float, help="weight_decay in solver.prototxt")
-    parser.add_argument("--batch_size_train", default=30, type=int, help="batch size in train")
+    parser.add_argument("--batch_size_train", default=32, type=int, help="batch size in train")
     parser.add_argument("--batch_size_val", default=16, type=int, help="batch size in val")
     parser.add_argument("--train_soon", help="whether to train", action="store_true")
     parser.add_argument("--gpu", default="0", help="gpus or gpu on which to train")
@@ -170,7 +170,7 @@ class ResNetClassificationModel(object):
         src_resnet50_deploy_prototxt="{}/ResNet-50-deploy.prototxt".format(src_prototxt_dir)
         dst_resnet50_trainval_prototxt="{}/my_trainval.prototxt".format(save_dir)
         train_lmdb="{}/train_lmdb".format(save_dir)
-        val_lmdb="{}/train_lmdb".format(save_dir)
+        val_lmdb="{}/val_lmdb".format(save_dir)
         mean_file="{}/mean.binaryproto".format(save_dir)
 
         file_object=open(src_resnet50_deploy_prototxt)
@@ -344,7 +344,7 @@ class ResNetClassificationModel(object):
         resize_height=self.__resize_height
         caffe_tool_dir=self.__caffe_tool_dir
 
-        self.createTxtFiles(0.2, 2)
+        self.createTxtFiles(0.2, 1)
         lmdb_list=[["train.txt", "train_lmdb"], ["val.txt", "val_lmdb"]]
         for ld in lmdb_list:
             create_lmdb_cmd="GLOG_logtostderr=1 "+os.path.join(caffe_tool_dir, "convert_imageset")+" --resize_height="+str(resize_height)+\
@@ -400,5 +400,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-#python train_resnet50.py /home/jiangzhiqi/Documents/deep-residual-networks/ResNet /home/jiangzhiqi/Documents/SSD-github/caffe/jiangzhiqi/vehicle_type_dir/generated ~/Documents/caffe/build/tools ~/Documents/SSD-github/caffe/jiangzhiqi/vehicle_type_dir/data --resize_height=256 --resize_width=256 --batch_size_train=2 --batch_size_val=1 --pretrained_model_dir=/home/jiangzhiqi/Documents/deep-residual-networks/ResNet --log_dir=logs --train
-	
+#python train_resnet50.py /home/jiangzhiqi/Documents/deep-residual-networks/ResNet /home/jiangzhiqi/Documents/SSD-github/caffe/jiangzhiqi/khfl_dir/generated ~/Documents/caffe/build/tools /home/jiangzhiqi/Documents/SSD-github/caffe/jiangzhiqi/khfl_dir/data --pretrained_model_dir=/home/jiangzhiqi/Documents/deep-residual-networks/ResNet --log_dir=logs --resize_height=224 --resize_width=224
+#python train_resnet50.py /home/jiangzhiqi/Documents/deep-residual-networks/ResNet /home/jiangzhiqi/python_test/vehicleDetect/generated ~/Documents/caffe/build/tools /home/jiangzhiqi/python_test/vehicleDetect/data_train --resize_height=224 --resize_width=224 --pretrained_model_dir=/home/jiangzhiqi/Documents/deep-residual-networks/ResNet --log_dir=logs
