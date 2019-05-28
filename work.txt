@@ -29,3 +29,5 @@ gdb调试、多线程、opencv视频接口与直线检测、stl、数据采集�
 27.attention,chatbot,translation  cnn+Seq2Seq+Attention
 28.CUDA编程
 29.end-to-end license plate detection and recognition; CCPD
+30.yolov3
+31.车牌尺寸   440x140  440x220  新能源:480x140
